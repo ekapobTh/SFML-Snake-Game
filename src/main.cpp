@@ -1,9 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include "../include/State.h"
 
 int main()
 {
-    auto window = sf::RenderWindow{ { 800, 600 }, "Snake Game" };
+    auto window = sf::RenderWindow{ { 200, 200 }, "Snake Game" };
     window.setFramerateLimit(144);
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
 
     while (window.isOpen())
     {
@@ -16,6 +19,7 @@ int main()
         }
 
         window.clear();
+        window.draw(shape);
         window.display();
     }
 }
