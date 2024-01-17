@@ -9,15 +9,16 @@
 
 #include "../header/SnakeSection.h"
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <vector>
+#include <deque>
 
 using namespace sf;
 using namespace std;
 
-class Engine
-{
+class Engine{
 private:
     Vector2f resolution;
     RenderWindow window;
@@ -26,10 +27,19 @@ private:
 
     vector<SnakeSection> snake;
 
+    int snakeDirection;
+    deque<int> directionQueue;
+    int speed;
+
+    Time timeSinceLastMove;
+
 public:
+    enum Direction { UP, RIGHT, DOWN, LEFT };
     Engine();
 
     void Input();
+    void AddDirection(int newDirection);
+    void Update();
 
     void Draw();
 

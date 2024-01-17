@@ -6,12 +6,9 @@
 int main()
 {
     Engine engine;
-
-    std::cout << "WE";
-
     engine.Run();
 
-//    return 0;
+    return 0;
 
 //    {
 //        auto window = sf::RenderWindow{ { 200, 200 }, "Snake Game" };

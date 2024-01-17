@@ -6,12 +6,16 @@
 
 const sf::Time Engine::TimePerFrame = seconds(1.f/60.f);
 
-Engine::Engine()
-{
+Engine::Engine() {
     resolution = Vector2f(800,600);
 
     window.create(VideoMode(resolution.x,resolution.y), "Snake Game", Style::Default);
     window.setFramerateLimit(FPS);
+
+    speed = 2;
+    snakeDirection = Direction::RIGHT;
+
+    timeSinceLastMove = Time::Zero;
 
     NewSnake();
 }
@@ -28,11 +32,15 @@ void Engine::AddSnakeSection() {
     snake.emplace_back(newSectionPosition);
 }
 
-void Engine::Run()
-{
-    while(window.isOpen())
-    {
+void Engine::Run() {
+    Clock clock;
+
+    while(window.isOpen()) {
+        Time dt = clock.restart();
+        timeSinceLastMove += dt;
+
         Input();
+        Update();
         Draw();
     }
 }
