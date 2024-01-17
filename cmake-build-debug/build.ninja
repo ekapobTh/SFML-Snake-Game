@@ -81,6 +81,14 @@ build CMakeFiles/CMakeSFMLProject.dir/src/Input.cpp.o: CXX_COMPILER__CMakeSFMLPr
   OBJECT_DIR = CMakeFiles/CMakeSFMLProject.dir
   OBJECT_FILE_DIR = CMakeFiles/CMakeSFMLProject.dir/src
 
+build CMakeFiles/CMakeSFMLProject.dir/src/SnakeSection.cpp.o: CXX_COMPILER__CMakeSFMLProject_unscanned_Debug /Users/john/Documents/GitHub/SFML-Snake-Game/src/SnakeSection.cpp || cmake_object_order_depends_target_CMakeSFMLProject
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles/CMakeSFMLProject.dir/src/SnakeSection.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics -F/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks
+  INCLUDES = -I/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles/CMakeSFMLProject.dir
+  OBJECT_FILE_DIR = CMakeFiles/CMakeSFMLProject.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CMakeSFMLProject
@@ -89,7 +97,7 @@ build CMakeFiles/CMakeSFMLProject.dir/src/Input.cpp.o: CXX_COMPILER__CMakeSFMLPr
 #############################################
 # Link the executable bin/CMakeSFMLProject
 
-build bin/CMakeSFMLProject: CXX_EXECUTABLE_LINKER__CMakeSFMLProject_Debug CMakeFiles/CMakeSFMLProject.dir/src/main.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Draw.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Engine.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Input.cpp.o | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
+build bin/CMakeSFMLProject: CXX_EXECUTABLE_LINKER__CMakeSFMLProject_Debug CMakeFiles/CMakeSFMLProject.dir/src/main.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Draw.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Engine.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/Input.cpp.o CMakeFiles/CMakeSFMLProject.dir/src/SnakeSection.cpp.o | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
   LINK_LIBRARIES = -Wl,-rpath,/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks  _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lpthread  -ObjC  -Xlinker -framework -Xlinker OpenGL  -framework Foundation  -framework AppKit  -framework IOKit  -framework Carbon  -Xlinker -framework -Xlinker freetype
   LINK_PATH = -F/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks

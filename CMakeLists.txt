@@ -16,6 +16,8 @@ add_executable(CMakeSFMLProject src/main.cpp
         header/Engine.h
         header/Draw.h
         src/Input.cpp
+        src/SnakeSection.cpp
+        header/SnakeSection.h
 )
 target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)

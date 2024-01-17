@@ -7,8 +7,11 @@
 
 #endif //CMAKESFMLPROJECT_ENGINE_H
 
+#include "../header/SnakeSection.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <vector>
 
 using namespace sf;
 using namespace std;
@@ -21,12 +24,17 @@ private:
     const unsigned  int FPS = 60;
     static const Time TimePerFrame;
 
+    vector<SnakeSection> snake;
+
 public:
     Engine();
 
     void Input();
 
     void Draw();
+
+    void NewSnake();
+    void AddSnakeSection();
 
     void Run();
 };

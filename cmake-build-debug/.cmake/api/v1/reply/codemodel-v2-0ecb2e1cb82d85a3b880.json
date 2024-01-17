@@ -11,7 +11,7 @@
 						1
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-b1a883d22527f7fabb2e.json",
+					"jsonFile" : "directory-.-Debug-7e347222a46f335d73ab.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -186,7 +186,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CMakeSFMLProject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CMakeSFMLProject-Debug-1239b2dffe920dd4e62e.json",
+					"jsonFile" : "target-CMakeSFMLProject-Debug-d961008fe40b144b2787.json",
 					"name" : "CMakeSFMLProject",
 					"projectIndex" : 0
 				},
