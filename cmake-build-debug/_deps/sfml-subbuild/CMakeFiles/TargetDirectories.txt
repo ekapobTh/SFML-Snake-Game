@@ -1,3 +1,0 @@
-/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
-/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
-/Users/john/Documents/GitHub/SFML-Snake-Game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir
