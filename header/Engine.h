@@ -8,6 +8,7 @@
 #endif //CMAKESFMLPROJECT_ENGINE_H
 
 #include "../header/SnakeSection.h"
+#include "../header/Fruit.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -30,6 +31,9 @@ private:
     int snakeDirection;
     deque<int> directionQueue;
     int speed;
+    int sectionsToAdd;
+
+    Fruit fruit;
 
     Time timeSinceLastMove;
 
@@ -45,6 +49,8 @@ public:
 
     void NewSnake();
     void AddSnakeSection();
+
+    void MoveFruit();
 
     void Run();
 };

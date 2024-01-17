@@ -17,7 +17,9 @@ Engine::Engine() {
 
     timeSinceLastMove = Time::Zero;
 
+    sectionsToAdd = 0;
     NewSnake();
+    MoveFruit();
 }
 
 void Engine::NewSnake() {
@@ -30,6 +32,29 @@ void Engine::NewSnake() {
 void Engine::AddSnakeSection() {
     Vector2f  newSectionPosition = snake[snake.size()-1].getPosition();
     snake.emplace_back(newSectionPosition);
+}
+
+void Engine::MoveFruit() {
+    Vector2f fruitResolution = Vector2f (resolution.x/20-2,resolution.y/20-2);
+    Vector2f  newFruitLocation;
+    bool badLocation = false;
+    srand(time(nullptr));
+
+    do {
+        badLocation = false;
+
+        newFruitLocation.x = (float)(1+rand() / ((RAND_MAX + 1u) / (int)fruitResolution.x)) * 20;
+        newFruitLocation.y = (float)(1+rand() / ((RAND_MAX + 1u) / (int)fruitResolution.y)) * 20;
+
+        for(auto & s : snake) {
+            if(s.getShape().getGlobalBounds().intersects(Rect<float>(newFruitLocation.x, newFruitLocation.y, 20, 20))){
+                badLocation = true;
+                break;
+            }
+        }
+    } while (badLocation);
+
+    fruit.setPosition(newFruitLocation);
 }
 
 void Engine::Run() {
