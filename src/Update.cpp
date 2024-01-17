@@ -38,6 +38,11 @@ void Engine::Update() {
             directionQueue.pop_front();
         }
 
+        if(sectionsToAdd){
+            AddSnakeSection();
+            sectionsToAdd--;
+        }
+
         switch (snakeDirection) {
             case Direction::RIGHT:
                 snake[0].setPosition(Vector2f(thisSectionPosition.x + 20, thisSectionPosition.y));
@@ -61,6 +66,12 @@ void Engine::Update() {
 
         for(auto & s : snake){
             s.Update();
+        }
+
+        if(snake[0].getShape().getGlobalBounds().intersects(fruit.getSprite().getGlobalBounds())) {
+            sectionsToAdd +=4;
+            speed++;
+            MoveFruit();
         }
 
         timeSinceLastMove = Time::Zero;
