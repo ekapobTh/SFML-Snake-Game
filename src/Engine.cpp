@@ -20,6 +20,9 @@ Engine::Engine() {
     sectionsToAdd = 0;
     NewSnake();
     MoveFruit();
+
+    currentGameState = GameState::RUNNING;
+    lastGameState = currentGameState;
 }
 
 void Engine::NewSnake() {
@@ -57,11 +60,32 @@ void Engine::MoveFruit() {
     fruit.setPosition(newFruitLocation);
 }
 
+void Engine::TogglePause() {
+    if(currentGameState == GameState::RUNNING){
+        lastGameState = currentGameState;
+        currentGameState = GameState::PAUSED;
+    } else if(currentGameState == GameState::PAUSED){
+        currentGameState = lastGameState;
+    }
+}
+
 void Engine::Run() {
     Clock clock;
 
     while(window.isOpen()) {
         Time dt = clock.restart();
+
+        if(currentGameState == GameState::PAUSED || currentGameState == GameState::GAMEOVER){
+            Input();
+
+            if(currentGameState == GameState::GAMEOVER){
+                Draw();
+            }
+
+            sleep(milliseconds(2));
+            continue;
+        }
+
         timeSinceLastMove += dt;
 
         Input();

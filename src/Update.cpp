@@ -43,6 +43,12 @@ void Engine::Update() {
             sectionsToAdd--;
         }
 
+        for (int s = 1; s < snake.size();s++){
+            if(snake[0].getShape().getGlobalBounds().intersects(snake[s].getShape().getGlobalBounds())){
+                currentGameState = GameState::GAMEOVER;
+            }
+        }
+
         switch (snakeDirection) {
             case Direction::RIGHT:
                 snake[0].setPosition(Vector2f(thisSectionPosition.x + 20, thisSectionPosition.y));

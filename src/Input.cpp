@@ -19,6 +19,11 @@ void Engine::Input() {
             window.close();
         }
 
+        std::cout << event.key.code << "\n";
+        if(event.key.code == 64){
+            TogglePause();
+        }
+
         if(event.key.code == Keyboard::Up){
             AddDirection(Direction::UP);
         }
