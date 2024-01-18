@@ -74,8 +74,6 @@ void Engine::Update() {
             MoveFruit();
         }
 
-
-
         for (int s = 1; s < snake.size();s++){
             if(snake[0].getShape().getGlobalBounds().intersects(snake[s].getShape().getGlobalBounds())){
                 currentGameState = GameState::GAMEOVER;

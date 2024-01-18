@@ -18,6 +18,11 @@ Engine::Engine() {
     CheckLevelFiles();
 
     StartTheGame();
+
+    mainFont.loadFromFile("../../assets/fonts/snake_game/SnakeGameDemoRegular.ttf");
+    setupText(&titleText, mainFont, "Snake Game",20 , Color::Black);
+    FloatRect titleTextBounds = titleText.getGlobalBounds();
+    titleText.setPosition(Vector2f(resolution.x/2 - titleTextBounds.width/2,-3));
 }
 
 void Engine::StartTheGame() {
@@ -84,6 +89,13 @@ void Engine::TogglePause() {
     } else if(currentGameState == GameState::PAUSED){
         currentGameState = lastGameState;
     }
+}
+
+void Engine::setupText(sf::Text *textItem, const sf::Font &font, const sf::String &value, int size, sf::Color color) {
+    textItem->setFont(font);
+    textItem->setString(value);
+    textItem->setCharacterSize(size);
+    textItem->setFillColor(color);
 }
 
 void Engine::CheckLevelFiles() {

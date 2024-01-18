@@ -42,6 +42,9 @@ private:
     int maxLevels;
     vector<String> levels;
 
+    Font mainFont;
+    Text titleText;
+
     Time timeSinceLastMove;
 
     int currentGameState;
@@ -57,6 +60,8 @@ public:
     void Update();
 
     void Draw();
+
+    static  void setupText(Text *textItem, const Font &font, const String & value,int size, Color color );
 
     void NewSnake();
     void AddSnakeSection();

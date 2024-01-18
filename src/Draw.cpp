@@ -19,5 +19,7 @@ void Engine::Draw()
         window.draw(s.getShape());
     }
 
+    window.draw(titleText);
+
     window.display();
 }
