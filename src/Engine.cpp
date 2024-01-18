@@ -12,15 +12,17 @@ Engine::Engine() {
     window.create(VideoMode(resolution.x,resolution.y), "Snake Game", Style::Default);
     window.setFramerateLimit(FPS);
 
+    StartTheGame();
+}
+
+void Engine::StartTheGame() {
     speed = 2;
     snakeDirection = Direction::RIGHT;
-
     timeSinceLastMove = Time::Zero;
-
     sectionsToAdd = 0;
+    directionQueue.clear();
     NewSnake();
     MoveFruit();
-
     currentGameState = GameState::RUNNING;
     lastGameState = currentGameState;
 }

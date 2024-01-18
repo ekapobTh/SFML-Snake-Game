@@ -5,25 +5,34 @@
 #include "../header/Engine.h"
 
 void Engine::Input() {
-    Event event{};
+    Event event;
 
     // Closing
     while(window.pollEvent(event)){
         if(event.type == Event::Closed)
             window.close();
+
+        if(event.key.code == Keyboard::Q){
+            std::cout << "ASDASDADA\n";
+        }
+
+        if (event.type == Event::KeyPressed) {
+            if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+                window.close();
+            }
+
+            if (Keyboard::isKeyPressed(Keyboard::P)) {
+                TogglePause();
+            }
+
+            if (Keyboard::isKeyPressed(Keyboard::R)) {
+                StartTheGame();
+            }
+        }
     }
 
     // Input
     if(event.type == Event::KeyPressed){
-        if(event.key.code == Keyboard::Escape){
-            window.close();
-        }
-
-        std::cout << event.key.code << "\n";
-        if(event.key.code == 64){
-            TogglePause();
-        }
-
         if(event.key.code == Keyboard::Up){
             AddDirection(Direction::UP);
         }

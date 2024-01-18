@@ -56,6 +56,8 @@ public:
 
     void MoveFruit();
 
+    void StartTheGame();
+
     void TogglePause();
 
     void Run();
