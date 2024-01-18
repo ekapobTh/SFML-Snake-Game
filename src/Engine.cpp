@@ -20,9 +20,18 @@ Engine::Engine() {
     StartTheGame();
 
     mainFont.loadFromFile("../../assets/fonts/snake_game/SnakeGameDemoRegular.ttf");
-    setupText(&titleText, mainFont, "Snake Game",20 , Color::Black);
+    subFont.loadFromFile("../../assets/fonts/mine_craft/Minecraft.ttf");
+
+    setupText(&titleText, mainFont, "Snake Game",20 , Color::Blue);
     FloatRect titleTextBounds = titleText.getGlobalBounds();
     titleText.setPosition(Vector2f(resolution.x/2 - titleTextBounds.width/2,-3));
+
+    setupText(&currentLevelText, subFont, "Level : " + to_string(currentLevel), 15, Color::Blue);
+    currentLevelText.setPosition(Vector2f(15,-3));
+    FloatRect currentLevelTextBounds = currentLevelText.getGlobalBounds();
+
+    setupText(&fruitEatenText, subFont, "Fruit : " + to_string(fruitsEatenInThisLevel), 15, Color::Blue);
+    fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
 }
 
 void Engine::StartTheGame() {
@@ -31,12 +40,19 @@ void Engine::StartTheGame() {
     timeSinceLastMove = Time::Zero;
     sectionsToAdd = 0;
     directionQueue.clear();
+    fruitsEatenInThisLevel = 0;
+    fruitsEatenTotal = 0;
     currentLevel = 1;
     LoadLevel(currentLevel);
     NewSnake();
     MoveFruit();
     currentGameState = GameState::RUNNING;
     lastGameState = currentGameState;
+    currentLevelText.setString("Level : " + to_string(currentLevel));
+    fruitEatenText.setString("Fruit : " + to_string(fruitsEatenInThisLevel));
+
+    FloatRect curretLevelTextBounds = currentLevelText.getGlobalBounds();
+    fruitEatenText.setPosition(Vector2f(curretLevelTextBounds.left + curretLevelTextBounds.width+20,-3));
 }
 
 void Engine::NewSnake() {

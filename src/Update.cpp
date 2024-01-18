@@ -69,6 +69,11 @@ void Engine::Update() {
         }
 
         if(snake[0].getShape().getGlobalBounds().intersects(fruit.getSprite().getGlobalBounds())) {
+            fruitsEatenInThisLevel++;
+            fruitsEatenTotal++;
+            fruitEatenText.setString("Fruit : " + to_string(fruitsEatenInThisLevel));
+            FloatRect currentLevelTextBounds = currentLevelText.getGlobalBounds();
+            fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
             sectionsToAdd +=4;
             speed++;
             MoveFruit();

@@ -34,6 +34,8 @@ private:
     deque<int> directionQueue;
     int speed;
     int sectionsToAdd;
+    int fruitsEatenInThisLevel;
+    int fruitsEatenTotal;
 
     Fruit fruit;
 
@@ -44,6 +46,10 @@ private:
 
     Font mainFont;
     Text titleText;
+
+    Font subFont;
+    Text fruitEatenText;
+    Text currentLevelText;
 
     Time timeSinceLastMove;
 

@@ -20,6 +20,8 @@ void Engine::Draw()
     }
 
     window.draw(titleText);
+    window.draw(currentLevelText);
+    window.draw(fruitEatenText);
 
     window.display();
 }
