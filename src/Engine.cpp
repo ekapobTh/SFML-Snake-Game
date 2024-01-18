@@ -12,6 +12,9 @@ Engine::Engine() {
     window.create(VideoMode(resolution.x,resolution.y), "Snake Game", Style::Default);
     window.setFramerateLimit(FPS);
 
+    maxLevels = 0;
+    CheckLevelFiles();
+
     StartTheGame();
 }
 
@@ -21,6 +24,8 @@ void Engine::StartTheGame() {
     timeSinceLastMove = Time::Zero;
     sectionsToAdd = 0;
     directionQueue.clear();
+    currentLevel = 1;
+//    LoadLevel(currentLevel);
     NewSnake();
     MoveFruit();
     currentGameState = GameState::RUNNING;
@@ -72,12 +77,12 @@ void Engine::TogglePause() {
 }
 
 void Engine::CheckLevelFiles() {
-    ifstream levelsManifest ("assets/levels/levels.txt");
+    ifstream levelsManifest ("../assets/levels/levels.txt");
     ifstream testFile;
     for (string manifestLine; getline(levelsManifest, manifestLine);) {
-        testFile.open("assets/levels/" + manifestLine);
+        testFile.open("../assets/levels/" + manifestLine);
         if (testFile.is_open()) {
-            levels.emplace_back("assets/levels/" + manifestLine);
+            levels.emplace_back("../assets/levels/" + manifestLine);
             testFile.close();
             maxLevels ++;
         }

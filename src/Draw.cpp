@@ -8,6 +8,10 @@ void Engine::Draw()
 {
     window.clear(Color::Black);
 
+    for (auto & w : wallSections) {
+        window.draw(w.getShape());
+    }
+
     window.draw(fruit.getSprite());
 
     for(auto & s : snake)
