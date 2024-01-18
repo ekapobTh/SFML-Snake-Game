@@ -21,6 +21,8 @@ add_executable(CMakeSFMLProject src/main.cpp
         src/Update.cpp
         src/Fruit.cpp
         header/Fruit.h
+        src/Wall.cpp
+        header/Wall.h
 )
 target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
 target_compile_features(CMakeSFMLProject PRIVATE cxx_std_17)

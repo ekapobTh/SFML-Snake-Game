@@ -71,6 +71,36 @@ void Engine::TogglePause() {
     }
 }
 
+void Engine::CheckLevelFiles() {
+    ifstream levelsManifest ("assets/levels/levels.txt");
+    ifstream testFile;
+    for (string manifestLine; getline(levelsManifest, manifestLine);) {
+        testFile.open("assets/levels/" + manifestLine);
+        if (testFile.is_open()) {
+            levels.emplace_back("assets/levels/" + manifestLine);
+            testFile.close();
+            maxLevels ++;
+        }
+    }
+}
+
+void Engine::LoadLevel(int levelNumber) {
+    string levelFile = levels[levelNumber - 1];
+    ifstream level (levelFile);
+    string line;
+    if (level.is_open()) {
+        for (int y = 0; y < 30; y++) {
+            getline(level, line);
+            for (int x = 0; x < 40; x++) {
+                if (line[x] == 'x') {
+                    wallSections.emplace_back(Wall(Vector2f(x * 20, y * 20), Vector2f(20, 20)));
+                }
+            }
+        }
+    }
+    level.close();
+}
+
 void Engine::Run() {
     Clock clock;
 

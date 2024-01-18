@@ -9,12 +9,14 @@
 
 #include "../header/SnakeSection.h"
 #include "../header/Fruit.h"
+#include "../header/Wall.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <vector>
 #include <deque>
+#include <fstream>
 
 using namespace sf;
 using namespace std;
@@ -34,6 +36,11 @@ private:
     int sectionsToAdd;
 
     Fruit fruit;
+
+    vector<Wall> wallSections;
+    int currentLevel;
+    int maxLevels;
+    vector<String> levels;
 
     Time timeSinceLastMove;
 
@@ -55,6 +62,8 @@ public:
     void AddSnakeSection();
 
     void MoveFruit();
+    void CheckLevelFiles();
+    void LoadLevel(int levelNumber);
 
     void StartTheGame();
 
