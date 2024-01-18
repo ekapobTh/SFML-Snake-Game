@@ -38,6 +38,11 @@ void Engine::Update() {
             directionQueue.pop_front();
         }
 
+        score += snake.size() + (fruitsEatenTotal + 1);
+        scoreText.setString("Score : " + to_string(score));
+        FloatRect scoreTextBounds = scoreText.getGlobalBounds();
+        scoreText.setPosition(Vector2f(resolution.x - scoreTextBounds.width - 15, -3));
+
         if(sectionsToAdd){
             AddSnakeSection();
             sectionsToAdd--;

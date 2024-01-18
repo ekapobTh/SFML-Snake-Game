@@ -32,9 +32,15 @@ Engine::Engine() {
 
     setupText(&fruitEatenText, subFont, "Fruit : " + to_string(fruitsEatenInThisLevel), 15, Color::Blue);
     fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
+
+
+    setupText(&scoreText, subFont, "Score : " + to_string(score), 15, Color::Blue);
+    FloatRect scoreTextBounds = scoreText.getGlobalBounds();
+    scoreText.setPosition(Vector2f(resolution.x - scoreTextBounds.width + 15, -3));
 }
 
 void Engine::StartTheGame() {
+    score = 0;
     speed = 2;
     snakeDirection = Direction::RIGHT;
     timeSinceLastMove = Time::Zero;
@@ -51,8 +57,12 @@ void Engine::StartTheGame() {
     currentLevelText.setString("Level : " + to_string(currentLevel));
     fruitEatenText.setString("Fruit : " + to_string(fruitsEatenInThisLevel));
 
-    FloatRect curretLevelTextBounds = currentLevelText.getGlobalBounds();
-    fruitEatenText.setPosition(Vector2f(curretLevelTextBounds.left + curretLevelTextBounds.width+20,-3));
+    FloatRect currentLevelTextBounds = currentLevelText.getGlobalBounds();
+    fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
+
+    scoreText.setString("Score : " + to_string(score));
+    FloatRect scoreTextBounds = scoreText.getGlobalBounds();
+    scoreText.setPosition(Vector2f(resolution.x - scoreTextBounds.width + 15, -3));
 }
 
 void Engine::NewSnake() {

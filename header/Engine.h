@@ -36,6 +36,7 @@ private:
     int sectionsToAdd;
     int fruitsEatenInThisLevel;
     int fruitsEatenTotal;
+    unsigned long long int score;
 
     Fruit fruit;
 
@@ -50,6 +51,7 @@ private:
     Font subFont;
     Text fruitEatenText;
     Text currentLevelText;
+    Text scoreText;
 
     Time timeSinceLastMove;
 
