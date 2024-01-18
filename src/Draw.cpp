@@ -24,5 +24,10 @@ void Engine::Draw()
     window.draw(fruitEatenText);
     window.draw(scoreText);
 
+    if(currentGameState == GameState::GAMEOVER){
+        window.draw(gameOverText);
+        window.draw(pressEnterText);
+    }
+
     window.display();
 }

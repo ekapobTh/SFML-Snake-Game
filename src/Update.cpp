@@ -79,9 +79,20 @@ void Engine::Update() {
             fruitEatenText.setString("Fruit : " + to_string(fruitsEatenInThisLevel));
             FloatRect currentLevelTextBounds = currentLevelText.getGlobalBounds();
             fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
-            sectionsToAdd +=4;
-            speed++;
-            MoveFruit();
+
+            bool beginningNewLevel = false;
+            if(fruitsEatenInThisLevel >= 10){
+                if(currentLevel < maxLevels){
+                    beginningNewLevel = true;
+                    BeginNextLevel();
+                }
+            }
+
+            if(!beginningNewLevel){
+                sectionsToAdd +=4;
+                speed++;
+                MoveFruit();
+            }
         }
 
         for (int s = 1; s < snake.size();s++){

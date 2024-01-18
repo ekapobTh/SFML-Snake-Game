@@ -1,8 +1,0 @@
-//
-// Created by John on 16/1/2024 AD.
-//
-
-#ifndef CMAKESFMLPROJECT_DRAW_H
-#define CMAKESFMLPROJECT_DRAW_H
-
-#endif //CMAKESFMLPROJECT_DRAW_H

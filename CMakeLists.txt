@@ -14,7 +14,6 @@ add_executable(CMakeSFMLProject src/main.cpp
         src/Draw.cpp
         src/Engine.cpp
         header/Engine.h
-        header/Draw.h
         src/Input.cpp
         src/SnakeSection.cpp
         header/SnakeSection.h

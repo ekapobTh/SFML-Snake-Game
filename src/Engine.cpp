@@ -37,6 +37,18 @@ Engine::Engine() {
     setupText(&scoreText, subFont, "Score : " + to_string(score), 15, Color::Blue);
     FloatRect scoreTextBounds = scoreText.getGlobalBounds();
     scoreText.setPosition(Vector2f(resolution.x - scoreTextBounds.width + 15, -3));
+
+    setupText(&gameOverText, mainFont, "GAME OVER",35 , Color::Yellow);
+    FloatRect  gameOverTextBounds = gameOverText.getLocalBounds();
+    gameOverText.setPosition(Vector2f(resolution.x / 2 - gameOverTextBounds.width/2,100));
+    gameOverText.setOutlineColor(Color::Black);
+    gameOverText.setOutlineThickness(2);
+
+    setupText(&pressEnterText, mainFont, "Press R to try again",25 , Color::Green);
+    FloatRect pressEnterTextBounds = pressEnterText.getLocalBounds();
+    pressEnterText.setPosition(Vector2f(resolution.x / 2 - pressEnterTextBounds.width/2,200));
+    pressEnterText.setOutlineColor(Color::Black);
+    pressEnterText.setOutlineThickness(2);
 }
 
 void Engine::StartTheGame() {
@@ -45,6 +57,7 @@ void Engine::StartTheGame() {
     snakeDirection = Direction::RIGHT;
     timeSinceLastMove = Time::Zero;
     sectionsToAdd = 0;
+    wallSections.clear();
     directionQueue.clear();
     fruitsEatenInThisLevel = 0;
     fruitsEatenTotal = 0;
@@ -63,6 +76,25 @@ void Engine::StartTheGame() {
     scoreText.setString("Score : " + to_string(score));
     FloatRect scoreTextBounds = scoreText.getGlobalBounds();
     scoreText.setPosition(Vector2f(resolution.x - scoreTextBounds.width + 15, -3));
+}
+
+void Engine::BeginNextLevel() {
+
+    currentLevel++;
+    wallSections.clear();
+    directionQueue.clear();
+    speed = 2 + currentLevel;
+    snakeDirection = Direction::RIGHT;
+    sectionsToAdd = 0;
+    fruitsEatenInThisLevel = 0;
+
+    LoadLevel(currentLevel);
+    NewSnake();
+    MoveFruit();
+
+    currentLevelText.setString("Level : " + to_string(currentLevel));
+    FloatRect currentLevelTextBounds = currentLevelText.getGlobalBounds();
+    fruitEatenText.setPosition(Vector2f(currentLevelTextBounds.left + currentLevelTextBounds.width + 20, -3));
 }
 
 void Engine::NewSnake() {

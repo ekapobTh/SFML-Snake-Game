@@ -52,6 +52,8 @@ private:
     Text fruitEatenText;
     Text currentLevelText;
     Text scoreText;
+    Text gameOverText;
+    Text pressEnterText;
 
     Time timeSinceLastMove;
 
@@ -78,6 +80,7 @@ public:
     void CheckLevelFiles();
     void LoadLevel(int levelNumber);
 
+    void BeginNextLevel();
     void StartTheGame();
 
     void TogglePause();
