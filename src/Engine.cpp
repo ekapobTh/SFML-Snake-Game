@@ -4,6 +4,8 @@
 
 #include "../header/Engine.h"
 
+namespace fs = std::filesystem;
+
 const sf::Time Engine::TimePerFrame = seconds(1.f/60.f);
 
 Engine::Engine() {
@@ -25,7 +27,7 @@ void Engine::StartTheGame() {
     sectionsToAdd = 0;
     directionQueue.clear();
     currentLevel = 1;
-//    LoadLevel(currentLevel);
+    LoadLevel(currentLevel);
     NewSnake();
     MoveFruit();
     currentGameState = GameState::RUNNING;
@@ -77,12 +79,16 @@ void Engine::TogglePause() {
 }
 
 void Engine::CheckLevelFiles() {
-    ifstream levelsManifest ("../assets/levels/levels.txt");
+    string levelPath = "../../assets/levels/";
+    ifstream levelsManifest (levelPath + "levels.txt");
     ifstream testFile;
+
+    string currentPath= fs::current_path();
+
     for (string manifestLine; getline(levelsManifest, manifestLine);) {
-        testFile.open("../assets/levels/" + manifestLine);
+        testFile.open(levelPath + manifestLine);
         if (testFile.is_open()) {
-            levels.emplace_back("../assets/levels/" + manifestLine);
+            levels.emplace_back(levelPath + manifestLine);
             testFile.close();
             maxLevels ++;
         }
@@ -91,6 +97,7 @@ void Engine::CheckLevelFiles() {
 
 void Engine::LoadLevel(int levelNumber) {
     string levelFile = levels[levelNumber - 1];
+
     ifstream level (levelFile);
     string line;
     if (level.is_open()) {
