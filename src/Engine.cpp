@@ -64,6 +64,14 @@ void Engine::MoveFruit() {
                 break;
             }
         }
+
+        for (auto & w : wallSections) {
+            if (w.getShape().getGlobalBounds().intersects(
+                    Rect<float>(newFruitLocation.x, newFruitLocation.y, 20, 20))) {
+                badLocation = true;
+                break;
+            }
+        }
     } while (badLocation);
 
     fruit.setPosition(newFruitLocation);
