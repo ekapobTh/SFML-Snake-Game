@@ -13,3 +13,7 @@ From the previous project ([NCurses Snake Game](https://github.com/ekapobTh/Ncur
 5. Wall
 6. Fruit
 7. Snake
+
+## Sample Gameplay
+
+<img src="/content/PSnake Game gameplay.gif?raw=true">
