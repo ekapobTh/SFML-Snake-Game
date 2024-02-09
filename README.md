@@ -16,4 +16,4 @@ From the previous project ([NCurses Snake Game](https://github.com/ekapobTh/Ncur
 
 ## Sample Gameplay
 
-<img src="/content/PSnake Game gameplay.gif?raw=true">
+<img src="/content/Snake Game gameplay.gif?raw=true">
