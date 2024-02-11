@@ -13,7 +13,7 @@ From the previous project ([NCurses Snake Game](https://github.com/ekapobTh/Ncur
 
 ## In-Game Componenet
 
-1. Current Level (Currently have 2 levels)
+1. Current Level (Currently 2 levels)
 2. Eaten fruit amount (Reset on level changed)
 3. Game Title
 4. Score
